@@ -1,0 +1,79 @@
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #2d81e0f3;
+}
+
+li {
+  float: right;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown1:hover .dropbtn {
+  background-color: rgba(76, 196, 233, 0.89);
+}
+
+li.dropdown1 {
+  display: inline-block;
+}
+
+.dropdown-content1 {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content1 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content1 a:hover {background-color: #f1f1f1;}
+
+.dropdown1:hover .dropdown-content1 {
+  display: block;
+}
+
+</style>
+
+<ul>
+  <a style="font-size:20px; color:aliceblue; padding: 20px;" href="http://localhost:3000/">LivewireShopping</a>
+  <li class="dropdown1">
+    
+    <a href="javascript:void(0)" class="dropbtn"><i class="fa fa-user"></i>&nbsp;User</a>
+    <div class="dropdown-content1">
+        {{# if login }}
+           <a href="/user/profile">User account</a>
+      <a href="/user/logout">Logout</a>
+
+      {{ else }}
+
+      <a href="/user/signup">Signup</a>
+      <a href="/user/signin">Signin</a>
+
+        {{/if}}
+      
+    </div>
+  </li>
+  <li>
+      <a href="/shopping-cart/"><i class="fa fa-shopping-cart"></i>&nbsp;Cart
+       <span class="badge">{{session.cart.totalQty}}</span>
+       </a>
+      </li> 
+</ul>

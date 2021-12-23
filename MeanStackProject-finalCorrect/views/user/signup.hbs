@@ -1,0 +1,25 @@
+<div style="margin-left: 500px; margin-top:100px;" class="row">
+    <div class="col-md-6">
+        <h1 style="text-align-centre">SignUp</h1>
+        {{# if hasErrors}}
+        <div class="alert alert-danger">
+            {{# each messages}}
+            <p>{{this}}</p>
+            {{/each}}
+        </div>
+        {{/if}}
+        <form action="/user/signup" method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" class="form-control">
+            </div>
+             <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control">
+            </div>
+            <input type="hidden" name="_csrf" value={{csrfToken}}>
+            <button type="submit" class="btn btn-success">SignUp</button>
+        </form>
+         <p>Already Registered?<a href="/user/signin">Login Now!!</a></p>
+    </div>
+</div>
